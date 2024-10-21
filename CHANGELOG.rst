@@ -98,6 +98,9 @@ General
   Collections during new project creation if the :command:`ansible-galaxy`
   command is not available in the user's ``$PATH``.
 
+- The :ref:`tools/dist-upgrade.yml` playbook will not fail anymore during
+  :file:`/etc/services` database assembly if no upgrade was performed.
+
 :ref:`debops.apache` role
 '''''''''''''''''''''''''
 
@@ -116,6 +119,19 @@ General
 
 - The role now supports both the old and the new location if the initramfs
   configuration files.
+
+:ref:`debops.owncloud` role
+'''''''''''''''''''''''''''
+
+- Fixed conditional logic in a task which determines if the "autosetup"
+  operation should be performed during Nextcloud/ownCloud installation.
+
+:ref:`debops.postgresql_server` role
+''''''''''''''''''''''''''''''''''''
+
+- Fixed an issue with the ``vacuum_defer_cleanup_age`` option removal in
+  PostgreSQL 16.x resulting in failed startup of the service. The option will
+  be added only on supported PostgreSQL versions.
 
 Removed
 ~~~~~~~
